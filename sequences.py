@@ -21,7 +21,6 @@ to get an idea about how module documentation is usually handled.
 # code should appear in a module.
 
 # Minimize the use of global constants.
-CONSTANT1 = 0
 
 def fibonacci(n):
 	"""Function docstring
@@ -33,18 +32,18 @@ def fibonacci(n):
 	"""
 	
 	#  check to make sure the input is valid
-	if isinstance( n, ( int, long ) ) == False: #http://stackoverflow.com/questions/3501382/checking-whether-a-variable-is-an-integer-or-not
-		raise ValueError('Input is not a number' )
-		return n
+	try:         #https://wiki.python.org/moin/HandlingExceptions
+		int(n)
+	except ValueError as e:
+		return 'Input is not a number' 
 
-	#print fibNum
+	if n < 1:
+		return 'Input is not a positive number'
 	fibList=[1]
 	fibCount = 1
 	for index in range(1, n):
 		fibList.append(fibCount)
 		fibCount = fibCount + fibList[index-1]
-		#print fibCount
-		#print index
 	return fibList
 
 def main(argv):
@@ -52,17 +51,11 @@ def main(argv):
 	See below for why this would exist. The argv argument lists command
 	line arguments taken from sys.argv in the main block below.
 	"""
-	#  check to make sure the input is valid
-	#if isinstance( argv[1], ( int, long ) ) == False: 
-	#	print "Input is not a number, please enter a positive integer"	
-	#	return
-
-	fibNum = int( argv[1] )
-	print fibonacci(fibNum)
 	test_fib1()
 	test_fib2()
 	test_fib3()
 	test_fib4()
+	test_fib5()
 	pass
 
 def test_fib1():
@@ -124,16 +117,29 @@ def test_fib4():
    # suppressed unless there is a failure, where it can be used for
    # debugging.
    # """
-	expected = "Input is not a number" 
-	try:
-		fibonacci('a')
-	except ValueError as e:
-		computed = e
+	expected = 'Input is not a number' 
+	computed = fibonacci('a')
 
-	success = computed is expected
-	msg = 'Computed (%s), expected (%s)' % (computed, expected)
+	success = computed == expected
+	msg = 'Computed %s, expected %s' % (computed, expected)
 	assert success, msg 
 
+def test_fib5():
+   # """Test function for nosetests
+   # Any function starting with name test_ will be automatically run
+   # by nosetests. Use an assert command to test a Boolean statement
+   # about how your code executed.  If the assert fails, it throws
+   # an exception, which is caught by nosetests and reported.
+   # Anything that is printed to the screen during this function is
+   # suppressed unless there is a failure, where it can be used for
+   # debugging.
+   # """
+	expected = 'Input is not a positive number'
+	computed = fibonacci(-1)
+
+	success = computed == expected
+	msg = 'Computed %s, expected %s' % (computed, expected)
+	assert success, msg 
 # After the body of the module, you can optionally create a section to
 # house executable code.
 
