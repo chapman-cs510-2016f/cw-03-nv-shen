@@ -1,8 +1,8 @@
 # CS510 CW 3
 
-**Author(s):** _\<your name(s)\>_
+**Author(s):** _Nengyin (Helen) Zhu, Lance Clifner, Alexis Ford_
 
-[![Build Status](https://travis-ci.org/chapman-cs510-2016f/cw-03-YOURNAME.svg?branch=master)](https://travis-ci.org/chapman-cs510-2016f/cw-03-YOURNAME)
+[![Build Status](https://travis-ci.org/chapman-cs510-2016f/cw-03-nv-shen.svg?branch=master)](https://travis-ci.org/chapman-cs510-2016f/cw-03-nv-shen)
 
 **Due date:** 2016/09/20
 
@@ -41,4 +41,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-**YOURNAME**
+**Nengyin (Helen) Zhu, Lance Clifner, Alexis Ford**
