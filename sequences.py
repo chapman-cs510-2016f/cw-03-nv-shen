@@ -39,11 +39,7 @@ def test_fibonacci_normal():
 def test_fibonacci_negNum():
 	"""Fibonacci number is a negative number """
 	number = -10
-	try:
-		fibonacci(number)	
-	except ValueError as e:
-		print e
-		computed = e
+	computed = fibonacci(number)	
 	expected = 'Argument must be a positive integer, not -10'
 	success = computed == expected
 	message = 'Computed %s, expected %s' % (computed, expected)
@@ -52,10 +48,7 @@ def test_fibonacci_negNum():
 def test_fibonacci_char():
 	"""Fibonacci number is a char"""
 	number = 'a'
-	try:
-		fibonacci(number)	
-	except ValueError as e:
-		computed = e
+	computed = fibonacci(number)
 	expected = 'Argument must be a number, not "a"'
 	success = computed == expected
 	message = 'Computed %s, expected %s' % (computed, expected)
@@ -71,6 +64,6 @@ if __name__ == "__main__":
 		print 'No Command-line argument was inputed.'
 		exit(1)
 	# test function
-	#test_fibonacci_normal()
-	#test_fibonacci_negNum()
-	#test_fibonacci_char()
+	test_fibonacci_normal()
+	test_fibonacci_negNum()
+	test_fibonacci_char()
