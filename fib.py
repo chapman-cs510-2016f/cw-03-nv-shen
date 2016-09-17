@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from sys import argv
-from sequences1 import fibonacci,main
+from sequences import fibonacci,main
 
 def test_main():
 	"""Test main function from sequences 1 exectued successfully"""
