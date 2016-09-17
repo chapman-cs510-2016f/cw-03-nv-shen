@@ -13,7 +13,7 @@ def fibonacci(number):
 	except IndexError:
 		return 'Argument must be supplied on the command line.'
 	except TypeError:
-		return 'Argument must be a number.'
+		return 'Argument must not be a list'
 	except ValueError:
 		return 'Argument must be a number, not "%s"' % number
 	
@@ -39,7 +39,11 @@ def test_fibonacci_normal():
 def test_fibonacci_negNum():
 	"""Fibonacci number is a negative number """
 	number = -10
-	computed = fibonacci(number)	
+	try:
+		fibonacci(number)	
+	except ValueError as e:
+		print e
+		computed = e
 	expected = 'Argument must be a positive integer, not -10'
 	success = computed == expected
 	message = 'Computed %s, expected %s' % (computed, expected)
@@ -48,7 +52,10 @@ def test_fibonacci_negNum():
 def test_fibonacci_char():
 	"""Fibonacci number is a char"""
 	number = 'a'
-	computed = fibonacci(number)	
+	try:
+		fibonacci(number)	
+	except ValueError as e:
+		computed = e
 	expected = 'Argument must be a number, not "a"'
 	success = computed == expected
 	message = 'Computed %s, expected %s' % (computed, expected)
@@ -59,11 +66,11 @@ def test_fibonacci_char():
 
 if __name__ == "__main__":
 	try:
-		main(argv[1])
+		main(argv)
 	except IndexError:
 		print 'No Command-line argument was inputed.'
 		exit(1)
 	# test function
-	test_fibonacci_normal()
-	test_fibonacci_negNum()
-	test_fibonacci_char()
+	#test_fibonacci_normal()
+	#test_fibonacci_negNum()
+	#test_fibonacci_char()
