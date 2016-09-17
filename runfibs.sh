@@ -1,23 +1,24 @@
 #!/bin/bash
 
 # set the max loop size
-maxFib=5
+maxFib=10000
+fibsFile=./fibs.csv
+fibsFileBak=./fibs.csv.bak
 
 
 # file and file backup checking
 # check if the target file exists
-if [ -f ./fibs.csv ]; then
+if [ -f $fibsFile ]; then
 	# if the file exists, check for the back up file existing
-	echo "File fibs.csv exists"
-	if [ -f ./fibs.csv.bak ]; then
-		echo "Both fibs.csv and fibs.csv.bak exist"
+	if [ -f $fibsFileBak ]; then
+		echo "Both $fibsFile and $fibsFileBak exist"
 		echo "Terminating run"
 		exit 1 
 	else
 		# make a backup of the file
-		echo "Moved fibs.csv to fibs.csv.bak to backup the file"
+		echo "Moved $fibsFile to $fibsFileBak to backup the file"
 		echo "Continuing with run"
-		mv fibs.csv fibs.csv.bak
+		mv $fibsFile $fibsFileBak
 	fi
 #else
 #	echo "File doesn't exist"
@@ -31,6 +32,7 @@ delim=','
 #  run the script from 1 to maxFib
 for ((index=1; index<=$maxFib;index=index+1))
 do
+	echo pass $index
 # command output captured into a variable is from (this was difficult to track down, and many harder ways to do it)
 # http://stackoverflow.com/questions/4651437/how-to-set-a-variable-equal-to-the-output-from-a-command-in-bash
 #  Note that the quotations are required to capture multi-line values.  No quotes captures just the last line apparently.
@@ -48,7 +50,7 @@ done
 #  note that there is no trailing delimiter after the final numeric entry
 
 #  put our comma-delimited fib string into the output data file
-echo $outString > fibs.csv
+echo $outString > $fibsFile
 
 exit 0
 
