@@ -15,7 +15,7 @@ def fibonacci(number):
 	except TypeError:
 		return 'Argument must not be a list'
 	except ValueError:
-		return 'Argument must be a number, not "%s"' % number
+		return 'Argument must be a integer, not "%s"' % number
 	
 	if number < 1:
 		return 'Argument must be a positive integer, not %d' % number
@@ -49,7 +49,7 @@ def test_fibonacci_char():
 	"""Fibonacci number is a char"""
 	number = 'a'
 	computed = fibonacci(number)
-	expected = 'Argument must be a number, not "a"'
+	expected = 'Argument must be a integer, not "a"'
 	success = computed == expected
 	message = 'Computed %s, expected %s' % (computed, expected)
 	assert success, message
