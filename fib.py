@@ -13,10 +13,6 @@ def test_main():
 	assert success, message	
 
 def main(argv):
-	pass
-
-
-if __name__ == "__main__":	
 	"""Call the fibonacci function from sequesces1 moduler"""
 	try:
 		n = argv[1]
@@ -28,9 +24,14 @@ if __name__ == "__main__":
 		print fibList[-1]
 	else:
 		print fibList
+	pass
+
+
+if __name__ == "__main__":	
 	
 	
+	from sys import argv
 	main(argv)
 
-	test_main()
+
 
