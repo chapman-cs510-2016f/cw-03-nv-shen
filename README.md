@@ -30,7 +30,7 @@ Complete the following exercises, saving your solutions in the indicated files. 
 
 Analyze in this section what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have.
 
-**CHANGEME**
+**This assignment was particularly helpful with regards to creating effective test functions. Rather than checking every result of our list, it suffices to check edgecases like arguments of 1 and 2, a larger value like 1000, then check for nonsensical arguments like negative numbers and strings and charcters.**
 
 ## Honor Pledge
 
