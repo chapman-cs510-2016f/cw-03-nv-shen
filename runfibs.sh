@@ -20,9 +20,6 @@ if [ -f $fibsFile ]; then
 		echo "Continuing with run"
 		mv $fibsFile $fibsFileBak
 	fi
-#else
-#	echo "File doesn't exist"
-#	echo "No special handling"
 fi
 
 outString=''
@@ -32,7 +29,6 @@ delim=','
 #  run the script from 1 to maxFib
 for ((index=1; index<=$maxFib;index=index+1))
 do
-	echo pass $index
 # command output captured into a variable is from (this was difficult to track down, and many harder ways to do it)
 # http://stackoverflow.com/questions/4651437/how-to-set-a-variable-equal-to-the-output-from-a-command-in-bash
 #  Note that the quotations are required to capture multi-line values.  No quotes captures just the last line apparently.
