@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # set the max loop size
+#
+### INSTRUCTOR COMMENT:
+# The bash convention for global variables is to make them all caps: MAXFIB etc.
+#
 maxFib=10000
 fibsFile=./fibs.csv
 fibsFileBak=./fibs.csv.bak
@@ -27,6 +31,11 @@ newString=''
 delim=','
 
 #  run the script from 1 to maxFib
+#
+### INSTRUCTOR COMMENT:
+# While this numerical style of for loop is possible, it is rare in bash.
+# Usually just iterating over the elements of something like $(seq) is more clear
+#
 for ((index=1; index<=$maxFib;index=index+1))
 do
 # command output captured into a variable is from (this was difficult to track down, and many harder ways to do it)
@@ -46,7 +55,15 @@ done
 #  note that there is no trailing delimiter after the final numeric entry
 
 #  put our comma-delimited fib string into the output data file
+#
+### INSTRUCTOR COMMENT:
+# Note that it's also possible to append (>>) to a file at each iteration,
+# rather that collecting a giant string in memory and then dumping it all at once.
+#
 echo $outString > $fibsFile
 
+#
+### INSTRUCTOR COMMENT:
+# No need to exit 0. It's automatic.
 exit 0
 
