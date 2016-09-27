@@ -3,6 +3,13 @@
 from sys import argv
 from sequences import fibonacci,main
 
+#
+### INSTRUCTOR COMMENTS:
+# This is mostly copied from your other file.  You should NEVER duplicate code like this within
+# the same project. Instead, this entire block of code should only appear here, and not
+# also in the other file. See my comments in the other file for more.
+#
+
 def test_main():
 	"""Test main function from sequences 1 exectued successfully"""
 	arg = argv
